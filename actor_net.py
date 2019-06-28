@@ -2,12 +2,12 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 class Actor(nn.Module):
-    def __init__(self, nS, nA):
+    def __init__(self, nS, nA): # nS: state space size, nA: action space size
         super(Actor, self).__init__()
 
-        self.h1 = nn.Linear(nS, 200)
-        self.h2 = nn.Linear(200, 300)
-        self.out = nn.Linear(300, nA)
+        self.h1 = nn.Linear(nS, 100)
+        self.h2 = nn.Linear(100, 100)
+        self.out = nn.Linear(100, nA)
 
     def forward(self, x):
         x = F.relu(self.h1(x))
