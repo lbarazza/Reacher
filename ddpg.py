@@ -31,7 +31,7 @@ agent = DDPGAgent(nS=state_size,
                   std_decay_frames=200000)
 
 # setup csv and checkpoint files
-run_name = 'sample_test2'
+run_name = 'sample_test4' # name of the current test
 
 checkpoint_file_path = 'checkpoints/' + run_name + '.tar'
 csv_file_path = 'csv/' + run_name + '.csv'
@@ -82,6 +82,10 @@ for episode in range(start_episode, 1000):
     rets.append(ret)
     average_reward = sum(rets)/len(rets)
     print('Episode: {}\t Score: {}\t Avg. Reward: {}\t N. Steps: {}\t Std.: {}'.format(episode, ret, average_reward, agent.nSteps, agent.std))
+
+    if average_reward >= 30:
+        print("\t--> SOLVED! <--\t")
+        break
 
     data['episode'].append(episode)
     data['reward'].append(ret)
