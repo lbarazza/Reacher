@@ -101,14 +101,15 @@ class DDPGAgent:
             target_parameter.data.copy_((1-self.tau)*target_parameter + self.tau*local_parameter)
 
     # save checkpoint
+    # (uncomment the optimizers' lines to save their state_dict as well)
     def save(self, checkpoint_path, episode):
         torch.save({
                     'actor': self.actor.state_dict(),
                     'actor_target': self.actor_target.state_dict(),
-                    'actor_optimizer': self.actor_optimizer.state_dict(),
+                    #'actor_optimizer': self.actor_optimizer.state_dict(),
                     'critic': self.critic.state_dict(),
                     'critic_target': self.critic_target.state_dict(),
-                    'critic_optimizer': self.critic_optimizer.state_dict(),
+                    #'critic_optimizer': self.critic_optimizer.state_dict(),
                     'std': self.std,
                     'episode': episode
         }, checkpoint_path)
@@ -118,10 +119,10 @@ class DDPGAgent:
         checkpoint = torch.load(checkpoint_path)
         self.actor.load_state_dict(checkpoint['actor'])
         self.actor_target.load_state_dict(checkpoint['actor_target'])
-        self.actor_optimizer.load_state_dict(checkpoint['actor_optimizer'])
+        #self.actor_optimizer.load_state_dict(checkpoint['actor_optimizer'])
         self.critic.load_state_dict(checkpoint['critic'])
         self.critic_target.load_state_dict(checkpoint['critic_target'])
-        self.critic_optimizer.load_state_dict(checkpoint['critic_optimizer'])
+        #self.critic_optimizer.load_state_dict(checkpoint['critic_optimizer'])
         self.std = checkpoint['std']
         self.noise_distribution = normal.Normal(0, self.std)
         return checkpoint['episode']
