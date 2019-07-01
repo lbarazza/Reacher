@@ -38,12 +38,16 @@ An informal search over the hyperparameters has been conducted with the followin
 * the standard deviation has been decreased linearly in the amount of frames specified
 
 ## Results
-The agent was able to solve the environment in 100 episodes:
+The agent was able to solve the environment with a best of 100 episodes:
 ![alt text](https://raw.githubusercontent.com/lbarazza/Reacher/master/images/stats.png "DDPG stats")
 (the average reward is in dark blue, while the actual single rewards are plotted in light blue)
 
+However, it usually solves the environment in around 300 episodes:
+![alt text](https://raw.githubusercontent.com/lbarazza/Reacher/master/images/stats2.png "DDPG stats2")
+
+
 ## Improvements
 The agent could be improved to:
-- use OU noise instead of normal gaussian noise with zero mean
+- use Ornstein Uhlenbeck noise instead of normal gaussian noise with zero mean
 - be moved to a distributed version of DDPG such as D4PG (of course by adding more agents)
 - make use of Prioritized Experience Replay
