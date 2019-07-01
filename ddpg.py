@@ -35,7 +35,7 @@ run_name = 'sample_test4' # name of the current test
 
 checkpoint_file_path = 'checkpoints/' + run_name + '.tar'
 csv_file_path = 'csv/' + run_name + '.csv'
-update_rate = 25
+update_rate = 1
 
 checkpoint_file = Path(checkpoint_file_path)
 if checkpoint_file.is_file():
