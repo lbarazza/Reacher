@@ -56,3 +56,9 @@ To create a new agent and make it learn from scratch run (or resume training):
 ```
 python ddpg.py
 ```
+
+To visualize an agent loading weights from a checkpoint run:
+
+```
+python visualize_agent.py
+```
