@@ -1,9 +1,9 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# read the csv file created
+# read the csv file created by running the agent
 
-data_frame = pd.read_csv('csv/reacher-test6.csv')
+data_frame = pd.read_csv('csv/sample_test2.csv')
 
 episodes = data_frame['episode']
 rewards = data_frame['reward']
