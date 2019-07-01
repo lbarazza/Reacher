@@ -31,7 +31,7 @@ agent = DDPGAgent(nS=state_size,
                   std_decay_frames=200000)
 
 # setup csv and checkpoint files
-run_name = 'sample_test4' # name of the current test
+run_name = 'sample_test3' # name of the current test
 
 checkpoint_file_path = 'checkpoints/' + run_name + '.tar'
 csv_file_path = 'csv/' + run_name + '.csv'
