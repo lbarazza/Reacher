@@ -57,7 +57,7 @@ To create a new agent and make it learn from scratch run (or resume training):
 python ddpg.py
 ```
 
-To visualize an agent loading weights from a checkpoint run:
+To visualize an already existing agent loaded from a checkpoint, change the path to the desired checkpoint in the file and run (to visualize a pre-trained agent use checkpoint path "checkpoints/sample_test2.tar"):
 
 ```
 python visualize_agent.py
